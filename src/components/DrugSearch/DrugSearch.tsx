@@ -7,14 +7,9 @@ export default function DrugSearchForm() {
   const { setSearchResults } = React.useContext(DrugSearchContext);
 
   const handleDrugSearch = async (): Promise<void> => {
-    const searchEndpoint = `https://enavvi-api.azurewebsites.net/CashPrice/Search?planGuid=CostPlusDrug&searchTerm=${searchTerm}`;
-
     try {
-      const response = await fetch(searchEndpoint);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
+      const response = await fetch(`api/drugSearch?drug=${searchTerm}`);
+      const { data } = await response.json();
       setSearchResults(data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -47,6 +42,19 @@ export default function DrugSearchForm() {
         <div className="col-auto">
           <button type="submit" className="btn btn-primary">
             Submit
+          </button>
+        </div>
+        <div className="col-auto">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={(e) => {
+              e.preventDefault();
+              setSearchTerm("");
+              setSearchResults([]);
+            }}
+          >
+            Clear
           </button>
         </div>
       </div>

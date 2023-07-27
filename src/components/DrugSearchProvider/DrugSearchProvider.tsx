@@ -1,8 +1,9 @@
 "use client";
+import Drug from "@/models/Drug";
 import React, { PropsWithChildren } from "react";
 
 type DrugSearchContextType = {
-  searchResults: [];
+  searchResults: Drug[];
   setSearchResults: Function;
 };
 export const DrugSearchContext = React.createContext<DrugSearchContextType>({
