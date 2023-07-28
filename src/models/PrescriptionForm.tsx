@@ -6,10 +6,19 @@ class PrescriptionFormModel {
   prescriber: Prescriber;
   patient: Patient;
   drug: Drug;
-  constructor() {
-    this.drug = {} as Drug;
-    this.patient = {} as Patient;
-    this.prescriber = new Prescriber();
+  constructor(
+    drug: Drug = {} as Drug,
+    prescriber: Prescriber = new Prescriber(),
+    patient: Patient = {
+      firstName: "",
+      lastName: "",
+      address: { city: "", state: "", street: "" },
+      dob: null,
+    }
+  ) {
+    this.drug = drug;
+    this.patient = patient;
+    this.prescriber = prescriber;
   }
 }
 export default PrescriptionFormModel;

@@ -10,7 +10,9 @@ export async function GET(request: NextRequest) {
       throw new Error("Network response was not ok");
     }
     const results = await response.json();
-    data = results?.classResults?.results[0].data;
+    if (results.classResults.results.length > 0) {
+      data = results?.classResults?.results[0].data;
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
   }

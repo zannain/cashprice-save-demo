@@ -10,12 +10,11 @@ export interface IMedicationFormProps {
 }
 
 export default function MedicationForm(props: IMedicationFormProps) {
-  const formDrug = props.drug;
   const handleDrugUpdate = (
     e: React.ChangeEvent<HTMLInputElement>,
     drugProp: string
   ) => {
-    props.updateDrug(e.target.value, drugProp);
+    props.updateDrug("drug", { [drugProp]: e.target.value });
   };
   return (
     <>
@@ -24,9 +23,9 @@ export default function MedicationForm(props: IMedicationFormProps) {
 
         <TextControl
           id="name"
-          name="name"
+          name="medicationName"
           placeholder="Medication Name"
-          value={formDrug?.medicationName}
+          value={props.drug?.medicationName}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleDrugUpdate(e, "medicationName")
           }
@@ -35,15 +34,15 @@ export default function MedicationForm(props: IMedicationFormProps) {
           name="strength"
           id="strength"
           placeholder="Strength"
-          value={formDrug?.strength}
+          value={props.drug?.strength}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleDrugUpdate(e, "strength")
           }
         />
         <TextControl
-          name="dosageForm"
+          name="pillNonPill"
           placeholder="Dosage Form"
-          value={formDrug?.pillNonPill}
+          value={props.drug?.pillNonPill}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleDrugUpdate(e, "pillNonPill")
           }
@@ -51,7 +50,7 @@ export default function MedicationForm(props: IMedicationFormProps) {
         <TextControl
           name="quantity"
           placeholder="Quantity"
-          value={formDrug?.quantity}
+          value={props.drug?.quantity}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             handleDrugUpdate(e, "quantity")
           }

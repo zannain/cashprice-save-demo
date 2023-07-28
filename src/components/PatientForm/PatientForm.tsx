@@ -1,7 +1,10 @@
 import * as React from "react";
 import TextControl from "../TextControl/TextControl";
 import InputGroup from "react-bootstrap/InputGroup";
-export interface IPatientFormProps {}
+import Patient from "@/models/Patient";
+export interface IPatientFormProps {
+  patient: Patient;
+}
 
 export default function PatientForm(props: IPatientFormProps) {
   return (

@@ -11,7 +11,8 @@ export default function translatePrescriber(prescriber: any) {
   }
   if (prescriber.basic) {
     const basic = prescriber.basic;
-    result.name = `${basic.first_name} ${basic.last_name}`;
+    result.firstName = basic.first_name;
+    result.lastName = basic.last_name;
     result.npi = prescriber.number;
   }
   return result;

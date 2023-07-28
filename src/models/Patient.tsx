@@ -1,9 +1,10 @@
 import Address from "./Address";
 
 type Patient = {
-  name?: string;
+  firstName?: string;
+  lastName?: string;
   address?: Address;
-  dob?: Date;
+  dob?: Date | null;
 };
 
 export default Patient;

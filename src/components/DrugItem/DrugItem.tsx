@@ -11,18 +11,19 @@ export interface IDrugItemProps {
 }
 
 export default function DrugItem({ drug }: IDrugItemProps) {
-  const { setDrug } = React.useContext(DrugSearchContext);
+  const { setDrug, setSearchResults } = React.useContext(DrugSearchContext);
   const router = useRouter();
-  const { medicationName, unitPrice, drugId, brandName, source } = drug;
+  const { medicationName, unitPrice, drugId, brandName, source, slug } = drug;
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
-  const cost = formatter.format(Number(drug.unitPrice));
+  const cost = formatter.format(Number(unitPrice));
   const handleDrugSelection = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setDrug(drug);
-    router.push(`/${medicationName?.toLowerCase()}`);
+    setSearchResults([]);
+    router.push(`/drug/${drugId}`);
   };
   return (
     <tr>
