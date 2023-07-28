@@ -7,30 +7,33 @@ import DrugItem from "../DrugItem/DrugItem";
 
 const DrugSearchTable: FC = () => {
   const { searchResults } = React.useContext(DrugSearchContext);
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">Medication</th>
-          <th scope="col">Cost</th>
-          <th scope="col">Prescribe</th>
-        </tr>
-      </thead>
-      <tbody>
-        {searchResults.map((drug: Drug) => (
-          <DrugItem
-            medicationName={drug.medicationName}
-            cost={formatter.format(Number(drug.unitPrice))}
-            drugId={drug.drugId}
-            key={drug.drugId}
-          />
-        ))}
-      </tbody>
-    </table>
+    <div className="table-responsive">
+      <table className="table table-striped table-hover table-bordered align-middle">
+        <thead className="table-dark">
+          <tr>
+            <th className="w-25" scope="col">
+              Medication
+            </th>
+            <th className="w-25" scope="col">
+              Brand
+            </th>
+            <th className="w-25" scope="col">
+              Cost
+            </th>
+            <th className="w-25" scope="col">
+              Source
+            </th>
+            <th scope="col">Prescribe</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          {searchResults?.map((drug: Drug) => (
+            <DrugItem drug={drug} key={drug.drugId} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

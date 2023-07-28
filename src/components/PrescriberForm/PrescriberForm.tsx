@@ -1,21 +1,21 @@
 import * as React from "react";
 import TextControl from "../TextControl/TextControl";
 import translatePrescriber from "@/helpers/prescriberTranslator";
-
+import { InputGroup } from "react-bootstrap";
+import { AiOutlinePhone } from "react-icons/ai";
+import { FaBriefcaseMedical } from "react-icons/fa";
 export interface IPrescriberFormProps {
   prescriber: any;
 }
 
 export default function PrescriberForm(props: IPrescriberFormProps) {
   const result = translatePrescriber(props.prescriber);
-
   const [prescriberFirstName, setPrescriberFirstName] = React.useState<string>(
     result.name.split(" ")[0]
   );
   const [prescriberLastName, setPrescriberLastName] = React.useState<string>(
     result.name.split(" ")[1]
   );
-  const [npi, setNPI] = React.useState<string>(result.npi);
   const [street, setPrescriberStreet] = React.useState<string>(
     result.address.street
   );
@@ -25,19 +25,20 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
   );
   const [prescriberPhoneNumber, setPrescriberPhoneNumber] =
     React.useState<string>(result.phoneNumber);
-
   const [prescriberNPI, setPrescriberNPI] = React.useState(result.npi);
   return (
     <>
-      <div className="input-group col-md-8 my-3">
-        <span className="input-group-text">Prescriber</span>
+      <InputGroup className="col-md-8 my-3">
+        <InputGroup.Text>Prescriber</InputGroup.Text>
         <TextControl
           readOnly
           id="prescriberFirstName"
           name="prescriberFirstName"
           placeholder="First Name"
           value={prescriberFirstName}
-          onChange={(e) => setPrescriberFirstName(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberFirstName(e.target.value)
+          }
         />
         <TextControl
           readOnly
@@ -45,34 +46,48 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
           name="prescriberFirstName"
           placeholder="Last Name"
           value={prescriberLastName}
-          onChange={(e) => setPrescriberLastName(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberLastName(e.target.value)
+          }
         />
+        <InputGroup.Text>
+          <AiOutlinePhone />
+        </InputGroup.Text>
         <TextControl
           readOnly
           id="prescriberPhoneNumber"
           name="prescriberPhoneNumber"
           placeholder="Phone Number"
           value={prescriberPhoneNumber}
-          onChange={(e) => setPrescriberPhoneNumber(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberPhoneNumber(e.target.value)
+          }
         />
+        <InputGroup.Text>
+          <FaBriefcaseMedical />
+        </InputGroup.Text>
         <TextControl
           readOnly
           id="prescriberNPI"
           name="prescriberNPI"
           placeholder="NPI"
           value={prescriberNPI}
-          onChange={(e) => setPrescriberNPI(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberNPI(e.target.value)
+          }
         />
-      </div>
-      <div className="col-md-8 mb-3 input-group">
-        <span className="input-group-text">Address</span>
+      </InputGroup>
+      <InputGroup className="col-md-8 mb-3">
+        <InputGroup.Text>Address</InputGroup.Text>
         <TextControl
           readOnly
           id="prescriberAddress"
           name="prescriberAddress"
           placeholder="Street"
           value={street}
-          onChange={(e) => setPrescriberStreet(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberStreet(e.target.value)
+          }
         />
 
         <TextControl
@@ -81,7 +96,9 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
           id="prescriberCity"
           placeholder="City"
           value={city}
-          onChange={(e) => setPrescriberCity(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberCity(e.target.value)
+          }
         />
 
         <TextControl
@@ -89,9 +106,11 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
           name="prescriberState"
           placeholder="State"
           value={state}
-          onChange={(e) => setPrescriberState(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPrescriberState(e.target.value)
+          }
         />
-      </div>
+      </InputGroup>
     </>
   );
 }

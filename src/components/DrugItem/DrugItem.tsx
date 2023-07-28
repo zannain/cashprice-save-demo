@@ -1,28 +1,44 @@
 import Link from "next/link";
 import * as React from "react";
+import DrugSearchProvider, {
+  DrugSearchContext,
+} from "../DrugSearchProvider/DrugSearchProvider";
+import Drug from "@/models/Drug";
+import { useRouter } from "next/navigation";
 
 export interface IDrugItemProps {
-  cost: string;
-  medicationName: string;
-  drugId: string;
+  drug: Drug;
 }
 
-export default function DrugItem({
-  medicationName,
-  cost,
-  drugId,
-}: IDrugItemProps) {
+export default function DrugItem({ drug }: IDrugItemProps) {
+  const { setDrug } = React.useContext(DrugSearchContext);
+  const router = useRouter();
+  const { medicationName, unitPrice, drugId, brandName, source } = drug;
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+  const cost = formatter.format(Number(drug.unitPrice));
+  const handleDrugSelection = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setDrug(drug);
+    router.push(`/${medicationName?.toLowerCase()}`);
+  };
   return (
     <tr>
       <td>{medicationName}</td>
+      <td>{brandName}</td>
       <td>{cost}</td>
+      <td>{source}</td>
       <td>
-        <Link
-          href={`prescribe/${medicationName}?drugId=${drugId}`}
+        <button
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+            handleDrugSelection(e)
+          }
           className="btn btn-success"
         >
           Prescribe
-        </Link>
+        </button>
       </td>
     </tr>
   );

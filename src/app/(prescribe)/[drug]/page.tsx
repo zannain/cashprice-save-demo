@@ -26,5 +26,10 @@ export default async function DrugEntry(props: IDrugEntryProps) {
       </div>
     );
   }
-  return <PrescriptionForm prescriber={data} drug={drug} drugId={drugId} />;
+  return (
+    <>
+      <h3 className="mt-5">eRX Submission</h3>
+      <PrescriptionForm prescriber={data} drug={drug} drugId={drugId} />
+    </>
+  );
 }

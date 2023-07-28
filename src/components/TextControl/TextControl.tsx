@@ -1,7 +1,8 @@
 import React, { ComponentProps } from "react";
+import Form from "react-bootstrap/Form";
 
-export type ITextControlProps = ComponentProps<"input"> & {};
+export type ITextControlProps = ComponentProps<Form.Control>;
 
 export default function TextControl({ ...rest }: ITextControlProps) {
-  return <input className="form-control" {...rest} type="text" />;
+  return <Form.Control {...rest} type={rest.type || "text"} />;
 }

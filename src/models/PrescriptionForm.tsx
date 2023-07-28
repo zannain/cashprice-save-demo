@@ -1,10 +1,15 @@
-class Prescription {
-  drugId?: string;
-  fullName?: string;
-  address?: string;
-  dateOfBirth?: Date;
-  prescriberNPI?: string;
-  prescriberDEA?: string;
-}
+import Drug from "./Drug";
+import Patient from "./Patient";
+import Prescriber from "./Prescriber";
 
-export default Prescription;
+class PrescriptionFormModel {
+  prescriber: Prescriber;
+  patient: Patient;
+  drug: Drug;
+  constructor() {
+    this.drug = {} as Drug;
+    this.patient = {} as Patient;
+    this.prescriber = new Prescriber();
+  }
+}
+export default PrescriptionFormModel;

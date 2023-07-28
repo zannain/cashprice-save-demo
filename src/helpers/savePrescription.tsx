@@ -1,5 +1,5 @@
 import { PrescriptionFormFields } from "@/constants/PrescriptionFormFields";
-import Prescription from "@/models/PrescriptionForm";
+import Prescription from "@/models/Prescription";
 
 async function processPrescription(
   formData: any,

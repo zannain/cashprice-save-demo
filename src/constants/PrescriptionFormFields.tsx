@@ -11,8 +11,9 @@ export enum PrescriptionFormFields {
   prescriberCity = "prescriberCity",
   prescriberState = "prescriberState",
   prescriberNPI = "prescriberNPI",
-  name = "name",
   issueDate = "issueDate",
+
+  name = "name",
   strength = "strength",
   dosageForm = "dosageForm",
   quantity = "quantity",

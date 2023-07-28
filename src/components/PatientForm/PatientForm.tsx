@@ -1,13 +1,13 @@
 import * as React from "react";
 import TextControl from "../TextControl/TextControl";
-
+import InputGroup from "react-bootstrap/InputGroup";
 export interface IPatientFormProps {}
 
 export default function PatientForm(props: IPatientFormProps) {
   return (
     <>
-      <div className="input-group col-md-8 my-3">
-        <span className="input-group-text">Patient</span>
+      <InputGroup className="col-md-8 my-3">
+        <InputGroup.Text>Patient</InputGroup.Text>
         <TextControl
           id="patientFirstName"
           name="patientFirstName"
@@ -18,9 +18,9 @@ export default function PatientForm(props: IPatientFormProps) {
           name="patientLastName"
           placeholder="Last Name"
         />
-      </div>
-      <div className="col-md-8 mb-3 input-group">
-        <span className="input-group-text">Address</span>
+      </InputGroup>
+      <InputGroup className="col-md-8 mb-3">
+        <InputGroup.Text>Address</InputGroup.Text>
         <TextControl
           id="patientStreet"
           name="patientStreet"
@@ -30,14 +30,14 @@ export default function PatientForm(props: IPatientFormProps) {
         <TextControl name="patientCity" id="patientCity" placeholder="City" />
 
         <TextControl name="patientState" placeholder="State" />
-        <input
+        <TextControl
           className="form-control"
           type="date"
           id="patientDOB"
           name="patientDOB"
           placeholder="Date of Birth"
         />
-      </div>
+      </InputGroup>
     </>
   );
 }
