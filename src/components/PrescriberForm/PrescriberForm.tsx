@@ -25,11 +25,14 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
   );
   const [prescriberPhoneNumber, setPrescriberPhoneNumber] =
     React.useState<string>(result.phoneNumber);
+
+  const [prescriberNPI, setPrescriberNPI] = React.useState(result.npi);
   return (
     <>
       <div className="input-group col-md-8 my-3">
         <span className="input-group-text">Prescriber</span>
         <TextControl
+          readOnly
           id="prescriberFirstName"
           name="prescriberFirstName"
           placeholder="First Name"
@@ -37,6 +40,7 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
           onChange={(e) => setPrescriberFirstName(e.target.value)}
         />
         <TextControl
+          readOnly
           id="prescriberFirstName"
           name="prescriberFirstName"
           placeholder="Last Name"
@@ -44,16 +48,26 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
           onChange={(e) => setPrescriberLastName(e.target.value)}
         />
         <TextControl
+          readOnly
           id="prescriberPhoneNumber"
           name="prescriberPhoneNumber"
           placeholder="Phone Number"
           value={prescriberPhoneNumber}
           onChange={(e) => setPrescriberPhoneNumber(e.target.value)}
         />
+        <TextControl
+          readOnly
+          id="prescriberNPI"
+          name="prescriberNPI"
+          placeholder="NPI"
+          value={prescriberNPI}
+          onChange={(e) => setPrescriberNPI(e.target.value)}
+        />
       </div>
       <div className="col-md-8 mb-3 input-group">
         <span className="input-group-text">Address</span>
         <TextControl
+          readOnly
           id="prescriberAddress"
           name="prescriberAddress"
           placeholder="Street"
@@ -62,6 +76,7 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
         />
 
         <TextControl
+          readOnly
           name="prescriberCity"
           id="prescriberCity"
           placeholder="City"
@@ -70,6 +85,7 @@ export default function PrescriberForm(props: IPrescriberFormProps) {
         />
 
         <TextControl
+          readOnly
           name="prescriberState"
           placeholder="State"
           value={state}

@@ -1,11 +1,10 @@
-import Medication from "./Medication";
-import Patient from "./Patient";
-import Prescriber from "./Prescriber";
+class Prescription {
+  drugId?: string;
+  fullName?: string;
+  address?: string;
+  dateOfBirth?: Date;
+  prescriberNPI?: string;
+  prescriberDEA?: string;
+}
 
-type PrescriptionForm = {
-  prescriber: Prescriber;
-  medication: Medication;
-  patient: Patient;
-};
-
-export default PrescriptionForm;
+export default Prescription;
