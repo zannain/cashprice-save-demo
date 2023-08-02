@@ -1,8 +1,5 @@
-import Link from "next/link";
 import * as React from "react";
-import DrugSearchProvider, {
-  DrugSearchContext,
-} from "../DrugSearchProvider/DrugSearchProvider";
+import { DrugSearchContext } from "../DrugSearchProvider/DrugSearchProvider";
 import Drug from "@/models/Drug";
 import { useRouter } from "next/navigation";
 
