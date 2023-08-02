@@ -7,12 +7,7 @@ async function processPrescription(
 ): Promise<any> {
   const result = new Prescription();
   result.drugId = drugId;
-  const address = buildAddress(
-    formData[PrescriptionFormFields.patientCity],
-    formData[PrescriptionFormFields.patientState],
-    formData[PrescriptionFormFields.patientStreet]
-  );
-  result.address = address;
+  result.address = formData[PrescriptionFormFields.patientAddress];
   const patientName = buildName(
     formData[PrescriptionFormFields.patientFirstName],
     formData[PrescriptionFormFields.patientLastName]
@@ -30,9 +25,6 @@ async function processPrescription(
 
 function buildName(firstName: string, lastName: string): string {
   return `${firstName} ${lastName}`;
-}
-function buildAddress(city: string, state: string, street: string): string {
-  return `${street || ""} ${city} ${state}`;
 }
 
 export async function savePrescription(prescription: Prescription) {

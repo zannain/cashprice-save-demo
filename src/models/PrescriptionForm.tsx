@@ -7,12 +7,12 @@ class PrescriptionFormModel {
   patient: Patient;
   drug: Drug;
   constructor(
-    drug: Drug = {} as Drug,
+    drug: Drug = new Drug(),
     prescriber: Prescriber = new Prescriber(),
     patient: Patient = {
       firstName: "",
       lastName: "",
-      address: { city: "", state: "", street: "" },
+      address: "",
       dob: null,
     }
   ) {

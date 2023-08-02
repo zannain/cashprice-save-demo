@@ -1,9 +1,7 @@
 export enum PrescriptionFormFields {
   patientFirstName = "patientFirstName",
   patientLastName = "patientLastName",
-  patientStreet = "patientStreet",
-  patientCity = "patientCity",
-  patientState = "patientState",
+  patientAddress = "patientAddress",
   patientDOB = "patientDOB",
   prescriberLastName = "prescriberLastName",
   prescriberFirstName = "prescriberFirstName",

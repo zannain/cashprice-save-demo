@@ -47,6 +47,9 @@ export default function MedicationForm(props: IMedicationFormProps) {
             handleDrugUpdate(e, "pillNonPill")
           }
         />
+        <InputGroup.Text>
+          <AiOutlineNumber />
+        </InputGroup.Text>
         <TextControl
           name="quantity"
           placeholder="Quantity"
@@ -55,9 +58,6 @@ export default function MedicationForm(props: IMedicationFormProps) {
             handleDrugUpdate(e, "quantity")
           }
         />
-        <InputGroup.Text>
-          <AiOutlineNumber />
-        </InputGroup.Text>
       </InputGroup>
 
       <div className="mb-3">

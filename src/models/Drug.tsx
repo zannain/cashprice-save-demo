@@ -1,4 +1,4 @@
-type Drug = {
+class Drug {
   brandName?: string;
   dosageFromGroup?: string;
   drugClass?: string;
@@ -15,6 +15,14 @@ type Drug = {
   url?: string;
   drugId?: string;
   quantity?: number;
-};
+
+  constructor() {
+    this.medicationName = "";
+    this.strength = "";
+    this.quantity = 0;
+    this.pillNonPill = "";
+    this.unitPrice = "";
+  }
+}
 
 export default Drug;
