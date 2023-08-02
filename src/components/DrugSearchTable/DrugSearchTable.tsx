@@ -24,7 +24,7 @@ const DrugSearchTable: FC = () => {
             <th className="w-25" scope="col">
               Source
             </th>
-            <th scope="col">Prescribe</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
