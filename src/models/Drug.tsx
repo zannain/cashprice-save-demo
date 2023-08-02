@@ -16,6 +16,8 @@ class Drug {
   drugId?: string;
   quantity?: number;
   description?: string;
+  issueDate?: Date | "";
+  refills?: number;
   constructor() {
     this.medicationName = "";
     this.strength = "";
@@ -23,6 +25,8 @@ class Drug {
     this.pillNonPill = "";
     this.unitPrice = "";
     this.description = "";
+    this.issueDate = "";
+    this.refills = 0;
   }
 }
 

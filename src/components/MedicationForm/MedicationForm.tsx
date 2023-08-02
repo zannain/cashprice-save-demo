@@ -58,6 +58,24 @@ export default function MedicationForm(props: IMedicationFormProps) {
             handleDrugUpdate(e, "quantity")
           }
         />
+        <TextControl
+          name="issueDate"
+          placeholder="Issue Date"
+          type="date"
+          value={props.drug?.issueDate}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleDrugUpdate(e, "issueDate")
+          }
+        />
+
+        <TextControl
+          name="refills"
+          placeholder="Refills"
+          value={props.drug?.refills}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleDrugUpdate(e, "refills")
+          }
+        />
       </InputGroup>
 
       <div className="mb-3">

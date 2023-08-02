@@ -22,6 +22,8 @@ export default function DrugItem({ drug }: IDrugItemProps) {
   const handleDrugSelection = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     drug.quantity = 0;
+    drug.issueDate = new Date();
+    drug.refills = 0;
     setDrug(drug);
     setSearchResults([]);
     router.push(`/drug/${drugId}`);
