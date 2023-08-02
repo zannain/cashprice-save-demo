@@ -4,7 +4,7 @@ type Patient = {
   firstName?: string;
   lastName?: string;
   address?: string;
-  dob?: Date | null;
+  dob?: Date | "";
 };
 
 export default Patient;

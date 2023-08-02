@@ -84,7 +84,7 @@ export default function PrescriptionForm(props: IPrescriptionFormProps) {
         <Toast
           onClose={() => setShowToast(false)}
           show={showToast}
-          delay={1000}
+          delay={3000}
           autohide
           bg={toastBg}
         >

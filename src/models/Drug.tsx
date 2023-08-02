@@ -15,13 +15,14 @@ class Drug {
   url?: string;
   drugId?: string;
   quantity?: number;
-
+  description?: string;
   constructor() {
     this.medicationName = "";
     this.strength = "";
     this.quantity = 0;
     this.pillNonPill = "";
     this.unitPrice = "";
+    this.description = "";
   }
 }
 

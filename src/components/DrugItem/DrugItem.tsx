@@ -21,6 +21,7 @@ export default function DrugItem({ drug }: IDrugItemProps) {
   const cost = formatter.format(Number(unitPrice));
   const handleDrugSelection = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    drug.quantity = 0;
     setDrug(drug);
     setSearchResults([]);
     router.push(`/drug/${drugId}`);

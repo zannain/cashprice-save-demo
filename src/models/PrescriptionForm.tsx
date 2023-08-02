@@ -13,7 +13,7 @@ class PrescriptionFormModel {
       firstName: "",
       lastName: "",
       address: "",
-      dob: null,
+      dob: "",
     }
   ) {
     this.drug = drug;

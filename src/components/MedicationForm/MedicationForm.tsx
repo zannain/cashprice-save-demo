@@ -62,7 +62,14 @@ export default function MedicationForm(props: IMedicationFormProps) {
 
       <div className="mb-3">
         <FloatingLabel controlId="directions" label="Directions">
-          <Form.Control as="textarea" style={{ height: "100px" }} />
+          <Form.Control
+            as="textarea"
+            style={{ height: "100px" }}
+            value={props?.drug?.description}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleDrugUpdate(e, "description")
+            }
+          />
         </FloatingLabel>
       </div>
     </>
